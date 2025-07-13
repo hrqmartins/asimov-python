@@ -1,5 +1,9 @@
-print('Seja bem vindo ao ChatBot da NEXT!\n')
+print('Bem-vindo ao Nydra! (Aperte X para sair)\n')
+pergunta = input('Digite a sua pergunta: ')
 
-nome_usuario = input('Antes eu gostaria de saber qual é o seu nome ? ')
-duvida = input(f'Olá {nome_usuario}, qual é a sua dúvida? ')
-print(f'A sua dúvida é {duvida}.')
+while True:
+    print('Ryu: aqui colocaremos a reposta do bot')
+    pergunta = input('Usuario: ')    
+    if pergunta.upper() == 'X':
+        break
+
