@@ -1,17 +1,12 @@
-def bot_resposta(mensagens):
-    return 'Resposta do Bot'
 
-print('Bem vindo ao Nydra! (Digite X para sair)')
+import os 
 
-mensagens = []
-while True:
-    pergunta = input('Usuario: ')
-    if pergunta.lower() == 'x':
-        break
-    mensagens.append({'role': 'user', 'content': pergunta})
-    resposta = bot_resposta(mensagens)
-    mensagens.append({'role': 'assistant', 'content': resposta})
-    print(f'Bot: {resposta}')
-    
-print('Muito obrigado por usar o Nydra!')
-print(mensagens)
+os.environ['GROQ_API_KEY'] = api_key 
+'''
+environ -> varivavel de ambiente
+'''
+
+from langchain_groq import ChatGroq
+chat = ChatGroq(model='meta-llama/llama-4-maverick-17b-128e-instruct')
+resposta = chat.invoke('Ola modelo! quem é voce?')
+print(resposta.content)
