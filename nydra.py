@@ -1,12 +1,17 @@
+def bot_resposta(mensagens):
+    return 'Resposta do Bot'
+
+print('Bem vindo ao Nydra! (Digite X para sair)')
+
 mensagens = []
-
-print('Bem-vindo ao Nydra! (Aperte X para sair)\n')
-
 while True:
-    pergunta = input('Qual é a sua pergunta? ')
-    print('Bot: ')
-    mensagens.append(pergunta)
-    if pergunta == 'x':
-        print('Voce escolheu sair!')
-        print(f'Mensagens que vc enviou ate agora foram: \n {mensagens}')
+    pergunta = input('Usuario: ')
+    if pergunta.lower() == 'x':
         break
+    mensagens.append({'role': 'user', 'content': pergunta})
+    resposta = bot_resposta(mensagens)
+    mensagens.append({'role': 'assistant', 'content': resposta})
+    print(f'Bot: {resposta}')
+    
+print('Muito obrigado por usar o Nydra!')
+print(mensagens)
